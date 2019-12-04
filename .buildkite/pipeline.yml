@@ -15,7 +15,7 @@ steps:
 
   - name: test
     command:
-      - docker-compose --version
+      - dockerize -wait tcp://postgres:5432 -timeout 60s
       - make db.reset
       - make test
     plugins:
