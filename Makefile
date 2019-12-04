@@ -4,6 +4,10 @@ MOD_NAME = $(shell basename $(GO_MOD))
 
 # Database
 DB_BASE_URL = postgres://indebted:indebted@localhost
+ifdef POSTGRES_HOST
+	DB_BASE_URL = postgres://indebted:indebted@$(POSTGRES_HOST)
+endif
+
 export DB_URL = $(DB_BASE_URL)/$(MOD_NAME)?sslmode=disable
 CREATE_DB = 'create database "$(MOD_NAME)"'
 DROP_DB = 'drop database if exists "$(MOD_NAME)"'
