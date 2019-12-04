@@ -1,0 +1,4 @@
+name: modules-rdb
+steps:
+  - label: ":pipeline:"
+    command: buildkite-agent pipeline upload
