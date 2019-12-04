@@ -15,6 +15,7 @@ steps:
 
   - name: test
     command:
+      - docker-compose --version
       - make db.reset
       - make test
     plugins:
