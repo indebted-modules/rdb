@@ -23,6 +23,8 @@ services:
     working_dir: /src
     depends_on:
       - postgres
+    environment:
+      DB_URL: postgres://indebted:indebted@postgres/rdb?sslmode=disable
 
   postgres:
     image: postgres:9.6-alpine
