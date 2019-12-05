@@ -33,7 +33,7 @@ func (e *EntitySample) SetID(id string) {
 }
 
 func (e *EntitySample) PreInsert(s modl.SqlExecutor) error {
-	e.Created = time.Now().UTC()
+	e.Created = time.Now().Truncate(time.Microsecond).UTC()
 	return nil
 }
 
