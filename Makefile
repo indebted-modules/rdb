@@ -2,8 +2,8 @@
 GO_MOD = $(shell head -n 1 go.mod|sed "s/^module //g")
 MOD_NAME = $(shell basename $(GO_MOD))
 
-# Database
-DB_BASE_URL = postgres://indebted:indebted@localhost
+# Postgres
+DB_BASE_URL ?= postgres://indebted:indebted@localhost
 export DB_URL = $(DB_BASE_URL)/$(MOD_NAME)?sslmode=disable
 CREATE_DB = 'create database "$(MOD_NAME)"'
 DROP_DB = 'drop database if exists "$(MOD_NAME)"'

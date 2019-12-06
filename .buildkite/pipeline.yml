@@ -16,8 +16,7 @@ steps:
   - name: test
     command:
       - dockerize -wait tcp://postgres:5432 -timeout 60s
-      - POSTGRES_HOST=postgres make db.reset
-      - POSTGRES_HOST=postgres make test
+      - DB_BASE_URL=postgres://indebted:indebted@postgres make db.reset test
     plugins:
       - docker-compose#v3.1.0:
           run: test
