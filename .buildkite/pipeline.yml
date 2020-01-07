@@ -1,12 +1,8 @@
 steps:
-  - name: test
+  - name: lint && test
     command:
-      - make go-mod-verify
-      - make check-fmt
-      - make lint
-      - dockerize -wait tcp://postgres:5432 -timeout 60s
-      - DB_BASE_URL=postgres://indebted:indebted@postgres make db.reset test
+      - mmake lint
+      - mmake test
     plugins:
-      - docker#v3.3.0:
-          image: indebted-test
-          network: indebted-net
+      - docker-compose#v3.1.0:
+          run: dev
