@@ -7,3 +7,18 @@ services:
       - ./.tmp/go/pkg:/go/pkg
       - ./.tmp/go/cache:/.cache
       - ./.tmp/mmake:/usr/local/include/github.com
+    environment:
+      - PG_SERVICE=pg
+      - PG_USER=indebted
+      - PG_PWD=indebted
+    depends_on:
+      - pg
+
+  pg:
+    image: postgres:9.6-alpine
+    command: postgres -c log_statement=all
+    container_name: pg
+    environment:
+      POSTGRES_USER: indebted
+      POSTGRES_PASSWORD: indebted
+      POSTGRES_DB: indebted
