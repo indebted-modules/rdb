@@ -1,6 +1,6 @@
 include github.com/InDebted/make/index
 
-PG_SERVICE?=pg
+PG_SERVICE?=postgres
 PG_USER?=indebted
 PG_PWD?=indebted
 
