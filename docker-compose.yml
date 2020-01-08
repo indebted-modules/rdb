@@ -17,7 +17,6 @@ services:
   postgres:
     image: postgres:9.6-alpine
     command: postgres -c log_statement=all
-    container_name: postgres
     environment:
       POSTGRES_USER: indebted
       POSTGRES_PASSWORD: indebted
