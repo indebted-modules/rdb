@@ -2,6 +2,8 @@ steps:
   - name: lint && test
     command:
       - mmake lint
+      - mmake db.drop
+      - mmake db.create
       - mmake test
     plugins:
       - docker-compose#v3.1.0:
